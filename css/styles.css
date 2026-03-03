@@ -1,0 +1,282 @@
+:root {
+    --primario: #9c27b0;
+    --primarioOscuro: #89119d;
+    --secundario: #e9ed02;
+    --secundarioOscuro: rgb(208, 184, 0);
+    --blanco: #fff;
+    --negro: #000;
+
+    --fuentePrincipal: "Staatliches", sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* globales */
+body {
+    background-color: var(--primario); 
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+/* header  */
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    margin: 3rem 0; /* 3rem de separacion para arriba y debajo, y 0 para izquierda y derecha */
+}
+
+.navegacion {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0; /* 1rem de separacion para arriba y debajo, y 0 para izquierda y derecha */
+    display: flex;
+    justify-content: center;
+    gap: 5rem; /* espacio entre cada enlace */
+}
+
+.navegacion__enlace { /* clase para los enlaces de navegación */
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+}
+
+.navegacion__enlace:last-of-type{
+    margin-right: 0; /* eliminar el margen derecho del último enlace */
+}
+
+.navegacion__enlace--activo, /* clase para el enlace activo de navegación */
+.navegacion__enlace:hover { /* efecto hover para los enlaces de navegación */
+    color: var(--secundarioOscuro);
+}
+
+/* grid */
+.grid { /* clase para el contenedor de la cuadrícula */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */ 
+    column-gap: 2rem; /* espacio entre columnas */
+    row-gap: 2rem; /* espacio entre filas */
+}
+
+@media (min-width:768px ) { /* media query para pantallas de 768px o más */
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño para pantallas de 768px o más */
+    }
+}
+
+/* productos */
+.producto {
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+
+.producto__imagen {
+
+}
+
+.producto__nombre {
+    font-size: 4rem;
+}
+
+.producto__precio {
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* graficos */
+.grafico {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+     grid-column: 1 / 3;
+}
+
+.grafico--camisas {
+    grid-row:  2 / 3; 
+    background-image: url(../img/grafico1.jpg);
+
+}
+
+.grafico--node {
+    background-image: url(../img/grafico2.jpg);
+    grid-row: 8 / 9;
+}
+
+@media (min-width: 768px) {
+    .grafico--node {
+    grid-row: 5 / 6;
+    grid-column: 2/ 4;
+}
+}
+
+/* nosotros */
+.nosotros {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+}
+
+@media (min-width: 768px) {
+    .nosotros {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+}
+
+
+.nosotros__contenido {
+   
+}
+
+.nosotros__imagen {
+    grid-row: 1 / 2;
+    margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2 / 3;
+    }
+}
+
+/* iconos */
+.iconos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .iconos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}   
+}
+
+.icono {
+    text-align: center;
+}
+
+.icono__nombre {
+    color: var(--secundario)
+}
+
+.icono__imagen {
+}
+
+.icono__texto {
+    text-align: center;    
+}
+
+.icono__nombre,
+.icono__texto {
+    font-family: var(--fuentePrincipal);
+}
+
+/* Producto */
+@media (min-width: 768px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+
+    }
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+}
+
+.formulario__campo {
+    border: 1rem solid var(--primarioOscuro); /* en vez de tener tres líneas de código, podemos usar border: 1rem(border-width) solid(border-style) var--(border-color)*/
+    border-radius: 1rem;
+    background-color: transparent;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+}
+
+.formulario__submit {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .3s ease; /* transición suave para el cambio de color de fondo */
+    grid-column: 1 / 3;
+}
+
+.formulario__submit:hover {
+   cursor: pointer;
+   background-color: var(--secundarioOscuro);
+}
+
+/* footer */
+.footer {
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    font-size: 2rem;
+}
